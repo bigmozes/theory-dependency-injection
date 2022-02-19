@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class AccountServiceImpl implements AccountService {
+
     private static final List<Account> accounts = new ArrayList<>();
+
     static {
         User bob = new User("Bob", 23);
         User alice = new User("Alice", 19);

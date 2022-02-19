@@ -14,6 +14,7 @@ public class Account {
     public Account(String number, User owner) {
         this.accountNumber = number;
         this.owner = owner;
+        this.balance = BigDecimal.valueOf(0);
     }
 
     public User getOwner() {

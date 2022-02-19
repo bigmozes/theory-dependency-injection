@@ -1,5 +1,6 @@
 package bigmozes.com.app;
 
+import bigmozes.com.lib.Inject;
 import bigmozes.com.model.Account;
 import bigmozes.com.model.User;
 import bigmozes.com.service.AccountService;
@@ -9,12 +10,14 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 public class AtmApp {
+    @Inject
     private BankService bankService;
+    @Inject
     private AccountService accountService;
     private User currentUser;
 
     public void sendMoney(String to, BigDecimal amount) {
-        Optional<Account> userAccount = accountService.findByNumber(currentUser.getName());
+        Optional<Account> userAccount = accountService.findByUser(currentUser.getName());
         if (userAccount.isEmpty()) {
             throw new RuntimeException("User does not have an account");
         }
