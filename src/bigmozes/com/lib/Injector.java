@@ -3,9 +3,11 @@ package bigmozes.com.lib;
 import bigmozes.com.service.AccountService;
 import bigmozes.com.service.AuthenticationManager;
 import bigmozes.com.service.BankService;
+import bigmozes.com.service.LogService;
 import bigmozes.com.service.impl.AccountServiceImpl;
 import bigmozes.com.service.impl.AuthenticationManagerImpl;
 import bigmozes.com.service.impl.BankServiceImpl;
+import bigmozes.com.service.impl.LogServiceImpl;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -74,6 +76,7 @@ public class Injector {
         interfaceImplementations.put(BankService.class, BankServiceImpl.class);
         interfaceImplementations.put(AccountService.class, AccountServiceImpl.class);
         interfaceImplementations.put(AuthenticationManager.class, AuthenticationManagerImpl.class);
+        interfaceImplementations.put(LogService.class, LogServiceImpl.class);
         if (interfaceClazz.isInterface()) {
             return interfaceImplementations.get(interfaceClazz);
         }

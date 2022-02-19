@@ -5,6 +5,7 @@ import bigmozes.com.model.Account;
 import bigmozes.com.service.AccountService;
 import bigmozes.com.service.AuthenticationManager;
 import bigmozes.com.service.BankService;
+import bigmozes.com.service.LogService;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -14,9 +15,12 @@ public class BankServiceImpl implements BankService {
     private AccountService accountService;
     @Inject
     private AuthenticationManager authenticationManager;
+    @Inject
+    private LogService logService;
 
     @Override
     public void transfer(String accountFrom, String accountTo, BigDecimal amount) {
+        logService.log("Method 'transfer' was called");
         Optional<Account> sender = accountService.findByNumber(accountFrom);
         Optional<Account> receiver = accountService.findByNumber(accountTo);
         if (sender.isEmpty() || receiver.isEmpty()) {
