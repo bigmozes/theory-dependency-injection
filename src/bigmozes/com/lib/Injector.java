@@ -32,7 +32,6 @@ public class Injector {
             if (field.isAnnotationPresent(Inject.class)) {
                 // create a new object of field type
                 Object fieldInstance = getInstance(field.getType());
-
                 // create an object of interfaceClazz (or implementation class)
                 clazzImplementationInstance = createNewInstance(clazz);
 
@@ -78,7 +77,11 @@ public class Injector {
         interfaceImplementations.put(AuthenticationManager.class, AuthenticationManagerImpl.class);
         interfaceImplementations.put(LogService.class, LogServiceImpl.class);
         if (interfaceClazz.isInterface()) {
-            return interfaceImplementations.get(interfaceClazz);
+            Class<?> aClass = interfaceImplementations.get(interfaceClazz);
+            if (!aClass.isAnnotationPresent(Component.class)) {
+                throw new RuntimeException("Using improper component");
+            }
+            return aClass;
         }
         return interfaceClazz;
     }

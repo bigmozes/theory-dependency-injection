@@ -1,5 +1,6 @@
 package bigmozes.com.service.impl;
 
+import bigmozes.com.lib.Component;
 import bigmozes.com.lib.Inject;
 import bigmozes.com.model.Account;
 import bigmozes.com.service.AccountService;
@@ -10,6 +11,7 @@ import bigmozes.com.service.LogService;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+@Component
 public class BankServiceImpl implements BankService {
     @Inject
     private AccountService accountService;

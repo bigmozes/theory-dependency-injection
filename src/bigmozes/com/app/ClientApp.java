@@ -1,5 +1,6 @@
 package bigmozes.com.app;
 
+import bigmozes.com.lib.Component;
 import bigmozes.com.lib.Inject;
 import bigmozes.com.model.Account;
 import bigmozes.com.model.User;

@@ -9,6 +9,13 @@ import java.math.BigDecimal;
 public class Main {
 
     public static void main(String[] args) {
+        // - Dependency Inversion - we should depend on abstraction,
+        // i.e. class ClientApp depends on interface BankService,
+        // but not on concrete implementation like BankServiceImpl
+
+        // - Dependency Injection - we should initialize dependencies outside
+        // - Inversion of Control - someone else should call new
+
         Injector injector = Injector.getInjector();
         ClientApp clientApp = (ClientApp) injector.getInstance(ClientApp.class);
 

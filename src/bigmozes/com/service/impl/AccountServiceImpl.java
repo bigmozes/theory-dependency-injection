@@ -1,5 +1,6 @@
 package bigmozes.com.service.impl;
 
+import bigmozes.com.lib.Component;
 import bigmozes.com.model.Account;
 import bigmozes.com.model.User;
 import bigmozes.com.service.AccountService;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class AccountServiceImpl implements AccountService {
 
     private static final List<Account> accounts = new ArrayList<>();
